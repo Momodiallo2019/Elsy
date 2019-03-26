@@ -1,0 +1,17 @@
+.box {
+    padding:10px;
+    height: 190px;
+    text-align: center;
+}
+
+.box:nth-child(even) {
+    background-color: #ccc;
+}
+
+.box:nth-child(odd) {
+    background-color: #AAA;
+}
+
+/* .box:nth-child(2n+1) {
+    background-color: #AAA;
+  } */
