@@ -19,8 +19,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       heart: 120,
-      steps: 4000,
-      Temperature: -10
+      steps: 3000,
+      temperature: -10,
+      water: 1.5
     };
   }
 
@@ -37,8 +38,40 @@ class App extends React.Component {
   }
 
   onChangeTemperature = (value) => {
-    this.setState({sun: value});
+    this.setState({temperature: value});
   }
+
+  // PARTIE CALCULATE WATER
+
+  // je definis la méthode ligne 47 
+  // je crée une var ligne 50
+  // je crée une condition par la suite
+  // je rajoute Water o render pr rappeler ma fonction et ses composants
+  // on rappel le drink de water drink contenu dans notre render dans la partie js ( ligne 9)
+
+
+
+calculWater = (heart, temperature, steps) => {
+  let tempwater = this.state.water;
+
+    if(this.state.temperature > 20) {
+      let diffTemp = (this.state.temperature - 20) * 0.02;
+    tempwater = tempwater + diffTemp;
+      }
+    if(this.state.heart > 120) {
+      let diffHeart = (this.state.heart - 120) * 0.0008;
+      tempwater = tempwater + diffHeart;
+      } 
+    if(this.state.steps > 10000) {
+      let diffSteps = (this.state.steps - 10000) * 0.00002;
+      tempwater = tempwater + diffSteps;
+    }
+  
+    return tempwater.toFixed(2);
+  }
+
+
+
   // fin ########################################################
 
   // Etape 3 a partir de la ligne 41 ( on envoie la valeur du state dans la balise qui appele le composant et on envoie la fonction)
@@ -47,10 +80,10 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row">
+            <Water drink={this.calculWater(this.state.temperature,this.state.heart,this.state.steps)}/>
             <Person min={MIN_STEPS} max={MAX_STEPS} val={this.state.steps} onChangeP={this.onChangePerson} /> 
             <HeartRate min={MIN_HEART} max={MAX_HEART} val={this.state.heart} onChangeHr={this.onChangeHeartRate} />
-            <Water />
-            <Temperature min={MIN_TEMPERATURE} max={MAX_TEMPERATURE} val={this.state.sun} onChangeT={this.onChangeTemperature} />
+            <Temperature min={MIN_TEMPERATURE} max={MAX_TEMPERATURE} val={this.state.temperature} onChangeT={this.onChangeTemperature} />
           </div>  
           </div>
     );

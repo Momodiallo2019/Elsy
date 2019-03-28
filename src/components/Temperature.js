@@ -11,7 +11,7 @@ class Temperature extends React.Component{
              <p>Weather</p>
             <i className="material-icons" style={{fontSize: 100,color:"yellow"}}>wb_sunny</i>
             <p>{this.props.val} °C</p>
-                <Slider min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeT(val)} />
+                <Slider defaultValue={20} min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeT(val)} />
             </div>
         );
     }

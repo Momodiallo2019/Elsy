@@ -1,7 +1,13 @@
 .box {
-    padding:10px;
-    height: 190px;
+    padding:5px;
+    height: 215px;
     text-align: center;
+
+}
+
+i:hover{
+    transition-duration: 0.8s;
+    font-size:130px !important;
 }
 
 .box:nth-child(even) {

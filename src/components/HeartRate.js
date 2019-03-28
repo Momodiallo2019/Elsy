@@ -9,7 +9,7 @@ class HeartRate extends React.Component{
             <p>Heart Rate</p>
             <i className="material-icons" style={{fontSize: 100,color:"red"}}>favorite</i>
             <p>{this.props.val} BPM</p>
-            <Slider min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeHr(val)} />
+            <Slider defaultValue={120} min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeHr(val)} />
 
             </div>
         );

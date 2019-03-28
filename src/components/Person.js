@@ -10,7 +10,7 @@ class Person extends React.Component{
             <p>Nombres de pas</p>
             <i className="material-icons" style={{fontSize: 100,color:"black"}}>directions_walk</i>
             <p>{this.props.val} steps </p>
-               <Slider min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeP(val)} />  
+               <Slider Value={this.props.steps} min={this.props.min} max={this.props.max} onChange={(val) => this.props.onChangeP(val)} />  
             </div>
         );
     }
